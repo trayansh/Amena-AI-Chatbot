@@ -1,6 +1,5 @@
 ffmpeg
 gradio==3.38.0 
-google-cloud-speech==2.21.0
 torch
 speechrecognition
 openai

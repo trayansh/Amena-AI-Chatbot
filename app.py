@@ -51,7 +51,7 @@ with gr.Blocks() as bot_interface:
     with gr.Row():
         gr.HTML(cfg.bot["banner"])
     with gr.Row():
-        chatbot=gr.Chatbot([(cfg.bot["initial_message"], None)], elem_id="chatbot",layout="bubble")
+        chatbot=gr.Chatbot([(cfg.bot["initial_message"], None)], elem_id="chatbot",layout="bubble").style(height=500)
     with gr.Row():
         with gr.Column(scale=12):
             user_input = gr.Textbox(

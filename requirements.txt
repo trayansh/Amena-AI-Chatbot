@@ -4,5 +4,6 @@ gradio==3.38.0 --use-deprecated=legacy-resolver
 torch
 speechrecognition
 pyaudio
-
+openai
+gtts
 

@@ -1,0 +1,8 @@
+ffmpeg
+gradio==3.38.0 --use-deprecated=legacy-resolver
+--upgrade google-cloud-speech==2.21.0
+torch
+speechrecognition
+pyaudio
+
+

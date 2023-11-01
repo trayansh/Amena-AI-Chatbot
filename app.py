@@ -3,12 +3,13 @@ import gradio as gr
 import config as cfg
 import openai
 import speech_recognition as sr
-openai.api_key = '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'
-from google.cloud import speech
-r = sr.Recognizer()
 from gtts import gTTS
 
-def transcribe_file(speech_file: str) -> speech.RecognizeResponse:
+
+openai.api_key = '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'
+r = sr.Recognizer()
+
+def transcribe_file(speech_file: str):
     """Transcribe the audio file."""
     text = ""
     with sr.AudioFile(speech_file) as audio_file:
@@ -17,8 +18,6 @@ def transcribe_file(speech_file: str) -> speech.RecognizeResponse:
     text +=r.recognize_google(content)
 
     return text
-
-
 
 def add_user_input(history, text):
     """Add user input to chat hostory."""
@@ -34,7 +33,9 @@ def speak():
 messages=[
         {"role": "system", "content": "You are a Question/Answer assistant. Your name is Amena."},
     ]
+
 res = ["Hi, I'm your AI Chatbot Amena. How may I help you today?"]
+
 def bot_response(history):
     """Returns updated chat history with the Bot response."""
     messages.append({"role": "user", "content": history[-1][0]})
@@ -49,20 +50,19 @@ def bot_response(history):
 with gr.Blocks() as bot_interface:
     with gr.Row():
         gr.HTML(cfg.bot["banner"])
-    
-    with gr.Row(scale=1):
-        chatbot=gr.Chatbot([(cfg.bot["initial_message"], None)], elem_id="chatbot").style(height=500)
-    with gr.Row(scale=1):
+    with gr.Row():
+        chatbot=gr.Chatbot([(cfg.bot["initial_message"], None)], elem_id="chatbot",Bubbles).style(height=500)
+    with gr.Row():
         with gr.Column(scale=12):
             user_input = gr.Textbox(
                 show_label=False, placeholder=cfg.bot["text_placeholder"],
             ).style(container=False)
         with gr.Column(min_width=70, scale=1):
             submitBtn = gr.Button("Send")
-    with gr.Row(scale=1):
+    with gr.Row():
         audio_input=gr.Audio(source="microphone", type="filepath")
-    with gr.Row(scale=1):
-        output = gr.Audio(speak,waveform_options=True,visible=True,autoplay=True,trigger_mode='once')
+    with gr.Row():
+        output = gr.Audio(speak,visible=True,autoplay=True)
         speakBtn = gr.Button("Speak")
 
 

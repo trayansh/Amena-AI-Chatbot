@@ -74,5 +74,5 @@ with gr.Blocks() as bot_interface:
     inputs_event.then(lambda: gr.update(interactive=False), None, [user_input], queue=False)
     speakBtn.click(fn = speak,outputs=output)
 bot_interface.title = cfg.bot["title"]
-bot_interface.launch(share=False)
+bot_interface.launch(share=True)
  

@@ -51,12 +51,12 @@ with gr.Blocks() as bot_interface:
     with gr.Row():
         gr.HTML(cfg.bot["banner"])
     with gr.Row():
-        chatbot=gr.Chatbot([(cfg.bot["initial_message"], None)], elem_id="chatbot",layout="bubble).style(height=500)
+        chatbot=gr.Chatbot([(cfg.bot["initial_message"], None)], elem_id="chatbot",layout="bubble)
     with gr.Row():
         with gr.Column(scale=12):
             user_input = gr.Textbox(
                 show_label=False, placeholder=cfg.bot["text_placeholder"],
-            ).style(container=False)
+            )
         with gr.Column(min_width=70, scale=1):
             submitBtn = gr.Button("Send")
     with gr.Row():

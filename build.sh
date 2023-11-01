@@ -1,3 +1,4 @@
+#!/bin/sh
 sudo apt-get install python3-pip python-dev
 sudo apt-get install ffmpeg
 pip install gradio==3.38.0 --use-deprecated=legacy-resolver

@@ -6,7 +6,7 @@ import speech_recognition as sr
 from gtts import gTTS
 
 
-openai.api_key = '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'
+# openai.api_key = 'Your API KEY and uncomment'
 r = sr.Recognizer()
 
 def transcribe_file(speech_file: str):

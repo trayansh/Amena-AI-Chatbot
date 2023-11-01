@@ -60,7 +60,7 @@ with gr.Blocks() as bot_interface:
         with gr.Column(min_width=70, scale=1):
             submitBtn = gr.Button("Send")
     with gr.Row():
-        audio_input=gr.Audio(source="microphone", type="filepath")
+        audio_input=gr.Audio(sources="microphone", type="filepath")
     with gr.Row():
         output = gr.Audio(speak,visible=True,autoplay=True)
         speakBtn = gr.Button("Speak")

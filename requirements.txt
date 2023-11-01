@@ -1,5 +1,5 @@
 ffmpeg
-gradio==3.38.0 
+gradio
 torch
 speechrecognition
 openai
